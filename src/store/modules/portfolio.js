@@ -20,10 +20,10 @@ const mutations = {
     const record = state.stocks.find((element) => element.id == stockId);
     if (record.quantity > quantity) {
       record.quantity -= quantity;
-      state.funds -= stockPrice * quantity;
+      state.funds += stockPrice * quantity;
     } else {
       state.stocks.splice(state.stocks.indexof(record), 1);
-      sttate.funds -= stockPrice * state.stocks.quantity;
+      sttate.funds += stockPrice * state.stocks.quantity;
     }
   },
 };
