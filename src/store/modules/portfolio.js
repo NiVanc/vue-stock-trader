@@ -4,7 +4,7 @@ const state = {
 };
 
 const mutations = {
-  BUY_STOCK(state, { stockId, stockPrice, quantity }) {
+  BUY_STOCK(state, { stockId, quantity, stockPrice }) {
     const record = state.stocks.find((el) => el.id == stockId);
     if (record) {
       record.quantity += quantity;
@@ -49,4 +49,11 @@ const getters = {
   funds(state) {
     return state.funds;
   },
+};
+
+export default {
+  state,
+  mutations,
+  actions,
+  getters,
 };
