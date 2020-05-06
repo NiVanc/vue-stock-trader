@@ -17,13 +17,13 @@ const mutations = {
     state.funds -= stockPrice * quantity;
   },
   SELL_STOCK(state, { stockId, stockPrice, quantity }) {
-    const record = state.stocks.find((el) => el.id == stockId);
+    const record = state.stocks.find((element) => element.id == stockId);
     if (record.quantity > quantity) {
       record.quantity -= quantity;
-      funds -= stockPrice * quantity;
+      state.funds -= stockPrice * quantity;
     } else {
       state.stocks.splice(state.stocks.indexof(record), 1);
-      funds -= stockPrice * state.stocks.quantity;
+      sttate.funds -= stockPrice * state.stocks.quantity;
     }
   },
 };

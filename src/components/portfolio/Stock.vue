@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="col-sm-6 col-md-4">
-      <div class="panel panel-success">
+      <div class="panel panel-info">
         <div class="panel-heading">
           <h3 class="panel-title">
             {{ stock.name }}
@@ -14,7 +14,7 @@
           </div>
           <div class="pull-right">
             <button
-              @click="sellStock"
+              @click="placeSellOrder"
               class="btn btn-success"
               :disabled="quantity <= 0 || !Number.isInteger(+quantity)"
             >Sell</button>
@@ -34,13 +34,14 @@ export default {
   },
   props: ["stock"],
   methods: {
-    sellStock() {
+    placeSellOrder() {
       const order = {
         stockId: this.stock.id,
         stockPrice: this.stock.price,
         quantity: this.quantity
       };
       this.$store.dispatch("sellStock", order);
+      this.quantity = 0;
     }
   }
 };
